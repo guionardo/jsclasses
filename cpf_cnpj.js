@@ -33,7 +33,7 @@ function CPF_CNPJ(numdoc) {
 
 CPF_CNPJ.prototype.cdp = function(d, p) {
     var s = 0;
-    for (var i = 0; i < ds.length; i++) {
+    for (var i = 0; i < d.length; i++) {
         s+=(d[i] * p);
         p--;
         if (p < 2) {
