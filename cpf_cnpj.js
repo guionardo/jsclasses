@@ -11,6 +11,20 @@ function CPF_CNPJ(numdoc) {
     } else
         return this;
 
+    this.cdp = function(d, p) {
+        var s = 0;
+        for (var i = 0; i < d.length; i++) {
+            s+=(d[i] * p);
+            p--;
+            if (p < 2) {
+                p = 9;
+            }
+        };
+        s = s % 11;
+        s = (s < 2) ? 0 : 11 - s;
+        return d + s;
+    };
+        
     if (this.tipo == "CPF") {
         var digitos = this.numdoc.substr(0, 9);
         var novo_cpf = this.cdp(digitos, 10);
@@ -30,18 +44,3 @@ function CPF_CNPJ(numdoc) {
         }
     }
 }
-
-CPF_CNPJ.prototype.cdp = function(d, p) {
-    var s = 0;
-    for (var i = 0; i < d.length; i++) {
-        s+=(d[i] * p);
-        p--;
-        if (p < 2) {
-            p = 9;
-        }
-    }
-
-    s = s % 11;
-    s = (s < 2) ? 0 : 11 - s;
-    return d + s;
-};
