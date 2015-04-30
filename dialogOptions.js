@@ -34,6 +34,5 @@ function dialogOptions(options, disabled) {
 	}
 
 	html = html + '</form></div></div>';
-	console.log(html);
 	return html;
 }
